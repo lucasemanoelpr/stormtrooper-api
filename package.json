@@ -12,6 +12,7 @@
   "license": "ISC",
   "dependencies": {
     "cors": "^2.8.5",
+    "dnscache": "^1.0.2",
     "express": "^4.17.2"
   },
   "devDependencies": {

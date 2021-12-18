@@ -3,6 +3,14 @@ import app from "../app.js";
 import debug from 'debug';
 import cluster from 'cluster';
 import os from 'os';
+import dns from 'dns';
+import dnscache from 'dnscache';
+
+dnscache({
+    "enable": true,
+    "ttl": 300,
+    "cachesize": 1000,
+});
 
 const cpus = os.cpus();
 const log = debug('stormtrooper_api:www');
@@ -22,4 +30,3 @@ if (cluster.isMaster) {
     const server = app.listen(3000, () => { log('Server started.') });
     server.on('error', (err) => log(err));
 }
-
