@@ -31,6 +31,6 @@ if (cluster.isMaster) {
         log(`A new worker rises ${newWorker.process.id}`);
     });
 } else {
-    const server = app.listen(3000, () => { log('Server started.') });
+    const server = app.listen(process.env.APP_PORT, () => { log('Server started.') });
     server.on('error', (err) => log(err));
 }

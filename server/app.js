@@ -3,6 +3,9 @@ import routes from "./routes/index.js";
 import Home from "./controllers/Home.js";
 import NotFoundMiddleware from "./middlewares/NotFoundMiddleware.js";
 import HandleErrorMidleware from "./middlewares/HandleErrorMiddleware.js";
+import dotenv from "dotenv";
+
+dotenv.config();
 /**
  * Configuração do App
  */
