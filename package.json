@@ -8,10 +8,11 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
-  "author": "",
+  "author": "Lucas Emanoel da Fonseca <lucasemanoelsfs@gmail.com>",
   "license": "ISC",
   "dependencies": {
     "cors": "^2.8.5",
+    "debug": "^4.3.3",
     "dnscache": "^1.0.2",
     "dotenv": "^10.0.0",
     "express": "^4.17.2",

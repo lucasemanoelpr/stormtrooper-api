@@ -1,4 +1,4 @@
-import db from '../config/mongoist';
+import db from '../config/mongoist.js';
 
 const Stormtrooper = {
     list() {
