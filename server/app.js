@@ -4,6 +4,7 @@ import Home from "./controllers/Home.js";
 import NotFoundMiddleware from "./middlewares/NotFoundMiddleware.js";
 import HandleErrorMidleware from "./middlewares/HandleErrorMiddleware.js";
 import dotenv from "dotenv";
+import sequelize from "./config/sequelize_mysql.js";
 
 dotenv.config();
 /**
