@@ -18,6 +18,9 @@
     "express": "^4.17.2",
     "http-errors": "^2.0.0",
     "mysql2": "^2.3.3",
+    "passport": "^0.5.2",
+    "passport-http": "^0.3.0",
+    "redis": "^4.0.1",
     "sequelize": "^6.12.1"
   },
   "devDependencies": {
