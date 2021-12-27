@@ -1,7 +1,7 @@
 import createError from 'http-errors';
 
-const VerifyIdMiddleware = (req, res, next) => {
-	const id = req.params.id;
+const VerifyIdMiddleware = (request, response, next) => {
+	const id = request.params.id;
 
 	if (!/^[1-9]\d*$/.test(id)) {
 		return next(createError(422, 'Invalid id'));

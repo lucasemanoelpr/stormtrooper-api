@@ -1,5 +1,6 @@
-const util = require('../../../server/utils/Util');
-const assert  = require('assert');
+import util from '../../../server/utils/Util.js';
+import assert from 'assert';
+
 const cases = [
 	{ expected: 6, arr: [1, 2, 3] },
 	{ expected: 42, arr: [1, 5, 6, 30] },

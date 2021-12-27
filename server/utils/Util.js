@@ -15,4 +15,8 @@ const guid = () => {
 
 const isBiggerThan = (arr, minValue) => arr.filter(item => item >= minValue);
 
-module.exports = { arraySum, guid, isBiggerThan };
+export default {
+	arraySum,
+	guid,
+	isBiggerThan
+};
