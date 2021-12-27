@@ -34,4 +34,10 @@ Stormtrooper.belongsToMany(Division, {
     otherKey: "id_division",
 });
 
+Stormtrooper.belongsTo(Patent, {
+    foreignKey: {
+        name: "id_patent",
+    }
+});
+
 export default Stormtrooper;

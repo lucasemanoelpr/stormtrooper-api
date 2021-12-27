@@ -1,5 +1,6 @@
 import Division from "../models/Division.js";
 import model from "../models/Stormtrooper.js";
+import Patent from "../models/Patent.js";
 
 const Stormtrooper = {
     async list(q, page = 1) {
@@ -11,7 +12,14 @@ const Stormtrooper = {
                 }
             }
             : {};
-        return await model.findAll({ limit: 3, offset: page, ...queryByName });
+        return await model.findAll({
+            include: [{
+                model:Patent,
+                attributes: ["id", "name"],
+            }],
+            limit: 3, 
+            offset: page,
+            ...queryByName });
     },
     async byId(id) {
         return await model.findByPk(id);

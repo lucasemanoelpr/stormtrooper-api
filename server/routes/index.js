@@ -22,7 +22,7 @@ routes.get('/favicon.ico', (request, response, next) => {
     response.end(); 
 });
 // routes.use("/troopers", passport.authenticate('basic', { session: false }), trooperRoutes);
-routes.use("/troopers", verifyJwt, trooperRoutes);
+routes.use("/troopers", trooperRoutes);
 routes.use("/auth", authenticationRoutes);
 
 export default routes;
