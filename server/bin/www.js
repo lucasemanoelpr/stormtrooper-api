@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-import app from "../app.js";
+import app from '../app.js';
 import debug from 'debug';
 import cluster from 'cluster';
 import os from 'os';
@@ -11,9 +11,9 @@ http.globalAgent.keepAlive = true;
 https.globalAgent.keepAlive = true;
 
 dnscache({
-    "enable": true,
-    "ttl": 300,
-    "cachesize": 1000,
+	'enable': true,
+	'ttl': 300,
+	'cachesize': 1000,
 });
 
 const cpus = os.cpus();
@@ -21,16 +21,16 @@ const log = debug('stormtrooper_api:www');
 const onWorkerError = (code, signal) => log(code, signal);
 
 if (cluster.isMaster) {
-    cpus.forEach(_ => {
-        const worker = cluster.fork();
-        worker.on('error', onWorkerError);
-    });
-    cluster.on('exit', (err) => {
-        const newWorker = cluster.fork();
-        newWorker.on('error', onWorkerError);
-        log(`A new worker rises ${newWorker.process.id}`);
-    });
+	cpus.forEach(() => {
+		const worker = cluster.fork();
+		worker.on('error', onWorkerError);
+	});
+	cluster.on('exit', () => {
+		const newWorker = cluster.fork();
+		newWorker.on('error', onWorkerError);
+		log(`A new worker rises ${newWorker.process.id}`);
+	});
 } else {
-    const server = app.listen(process.env.APP_PORT, () => { log('Server started.') });
-    server.on('error', (err) => log(err));
+	const server = app.listen(process.env.APP_PORT, () => { log('Server started.'); });
+	server.on('error', (err) => log(err));
 }
