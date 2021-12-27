@@ -40,3 +40,23 @@ describe('#isBiggerThan', () => {
 		assert.deepEqual(result, []);
 	});
 });
+
+describe('#HandleNotFound', () =>{
+	it('When result=null, should throw not found', () => {
+		const result = null;
+		expect(() => {
+			util.handleNotFound(result);
+		}).toThrowError('Trooper not found.');
+
+		try {
+			util.handleNotFound(result);
+		} catch (error) {
+			expect(error.status).toBe(404);
+		}
+	});
+
+	it('When result={}, just return', () => {
+		const result = {};
+		expect(util.handleNotFound(result)).toBe(result);
+	});
+});

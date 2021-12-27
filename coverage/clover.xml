@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1640638917131" clover="3.2.0">
-  <project timestamp="1640638917131" name="All files">
-    <metrics statements="13" coveredstatements="13" conditionals="2" coveredconditionals="2" methods="8" coveredmethods="8" elements="23" coveredelements="23" complexity="0" loc="13" ncloc="13" packages="2" files="2" classes="2"/>
+<coverage generated="1640640313183" clover="3.2.0">
+  <project timestamp="1640640313183" name="All files">
+    <metrics statements="17" coveredstatements="17" conditionals="4" coveredconditionals="4" methods="9" coveredmethods="9" elements="30" coveredelements="30" complexity="0" loc="17" ncloc="17" packages="2" files="2" classes="2"/>
     <package name="middlewares">
       <metrics statements="5" coveredstatements="5" conditionals="2" coveredconditionals="2" methods="1" coveredmethods="1"/>
       <file name="VerifyIdMiddleware.js" path="F:\projetos\Projetos em Nodejs\stormtrooper_api\server\middlewares\VerifyIdMiddleware.js">
@@ -14,17 +14,21 @@
       </file>
     </package>
     <package name="utils">
-      <metrics statements="8" coveredstatements="8" conditionals="0" coveredconditionals="0" methods="7" coveredmethods="7"/>
+      <metrics statements="12" coveredstatements="12" conditionals="2" coveredconditionals="2" methods="8" coveredmethods="8"/>
       <file name="Util.js" path="F:\projetos\Projetos em Nodejs\stormtrooper_api\server\utils\Util.js">
-        <metrics statements="8" coveredstatements="8" conditionals="0" coveredconditionals="0" methods="7" coveredmethods="7"/>
-        <line num="1" count="1" type="stmt"/>
-        <line num="2" count="5" type="stmt"/>
-        <line num="3" count="15" type="stmt"/>
-        <line num="4" count="9" type="stmt"/>
-        <line num="7" count="1" type="stmt"/>
-        <line num="9" count="24" type="stmt"/>
-        <line num="13" count="3" type="stmt"/>
-        <line num="16" count="10" type="stmt"/>
+        <metrics statements="12" coveredstatements="12" conditionals="2" coveredconditionals="2" methods="8" coveredmethods="8"/>
+        <line num="3" count="1" type="stmt"/>
+        <line num="4" count="5" type="stmt"/>
+        <line num="5" count="15" type="stmt"/>
+        <line num="6" count="9" type="stmt"/>
+        <line num="9" count="1" type="stmt"/>
+        <line num="11" count="24" type="stmt"/>
+        <line num="15" count="3" type="stmt"/>
+        <line num="18" count="10" type="stmt"/>
+        <line num="20" count="1" type="stmt"/>
+        <line num="21" count="3" type="cond" truecount="2" falsecount="0"/>
+        <line num="22" count="2" type="stmt"/>
+        <line num="24" count="1" type="stmt"/>
       </file>
     </package>
   </project>

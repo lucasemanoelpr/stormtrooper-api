@@ -1,5 +1,5 @@
 import repository from '../repositories/Stormtrooper.js';
-import HandleNotFound from '../utils/HandleNotFound.js';
+import { handleNotFound } from '../utils/Util.js';
 
 const Stormtrooper = {
 	list (request, response, next) {
@@ -10,7 +10,7 @@ const Stormtrooper = {
 	},
 	byId (request, response, next) {
 		repository.byId(request.params.id)
-			.then(HandleNotFound)
+			.then(handleNotFound)
 			.then(result => response.status(201).json(result))
 			.catch(next);
 	},

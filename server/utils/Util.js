@@ -1,3 +1,5 @@
+import createError from 'http-errors';
+
 const arraySum = (arr) => {
 	return arr
 		.filter(item => !isNaN(item))
@@ -15,8 +17,16 @@ const guid = () => {
 
 const isBiggerThan = (arr, minValue) => arr.filter(item => item >= minValue);
 
+const handleNotFound = (result) => {
+	if (!result) {
+		throw createError(404, 'Trooper not found.');
+	}
+	return result;
+};
+
 export default {
 	arraySum,
 	guid,
-	isBiggerThan
+	isBiggerThan,
+	handleNotFound
 };
