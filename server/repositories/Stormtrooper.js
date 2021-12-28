@@ -30,12 +30,8 @@ const Stormtrooper = {
 		await newUser.addDivision(division, { through: { selfGranted: false } });
 		return newUser;
 	},
-	async updateById(id, { name, nickname, id_patent }) {
-		return await model.update({
-			name,
-			nickname,
-			id_patent,
-		}, {
+	async updateById(id, trooper) {
+		return await model.update(trooper, {
 			where: {
 				id,
 			}

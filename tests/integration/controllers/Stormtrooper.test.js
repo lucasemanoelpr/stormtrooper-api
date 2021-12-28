@@ -2,7 +2,6 @@ import app from '../../../server/app.js';
 import request from 'supertest';
 import Stormtrooper from '../../../server/repositories/Stormtrooper.js';
 
-
 let id;
 beforeEach(() => {
 	return Stormtrooper.create({
@@ -58,8 +57,6 @@ describe('stormtrooper controller', () => {
   it('PUT /troopers/:id', async () => {
 		const response = await request(app).put(`/troopers/${id}`).send({
 			name: '00004CT-TEST',
-			nickname: 'Aqua Dust 4 TEST',
-			id_patent: 1,
 		});
 		expect(response.status).toBe(200);
 	});

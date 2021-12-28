@@ -28,7 +28,7 @@ describe('#VerifiIdMiddleware', () => {
 	it('valid id', () => {
 		next = (error) => {
 			expect(error).toBeUndefined();
-		}
+		};
 		request.params = { id: 5 };
 		VerifyIdMiddleware(request, response, next);
 	});
