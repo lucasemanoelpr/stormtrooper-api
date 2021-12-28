@@ -1,5 +1,7 @@
 import repository from '../repositories/Stormtrooper.js';
-import { handleNotFound } from '../utils/Util.js';
+import util from '../utils/Util.js';
+
+const { handleNotFound } = util;
 
 const Stormtrooper = {
 	list (request, response, next) {

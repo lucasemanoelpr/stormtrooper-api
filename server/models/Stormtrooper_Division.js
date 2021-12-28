@@ -1,5 +1,7 @@
-import { DataTypes, Model } from 'sequelize';
+import _sequelize from 'sequelize';
 import sequelize from '../config/sequelize_mysql.js';
+
+const { DataTypes, Model } = _sequelize;
 
 class Stormtrooper_Division extends Model { }
 

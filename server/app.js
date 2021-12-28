@@ -1,8 +1,8 @@
+import dotenv from 'dotenv';
 import express from 'express';
 import routes from './routes/index.js';
 import NotFoundMiddleware from './middlewares/NotFoundMiddleware.js';
 import HandleErrorMidleware from './middlewares/HandleErrorMiddleware.js';
-import dotenv from 'dotenv';
 import nunjucks from 'nunjucks';
 import path from 'path';
 import { dirname } from 'path';
@@ -10,7 +10,9 @@ import { fileURLToPath } from 'url';
 
 const __dirname = path.join(dirname(fileURLToPath(import.meta.url)), '../');
 
-dotenv.config();
+process.env.NODE_ENV = process.env.NODE_ENV.trim() || '';
+const envFile = path.resolve(__dirname, `.${process.env.NODE_ENV}.env`);
+dotenv.config({ path: envFile });
 /**
  * Configuração do App
  */
@@ -35,10 +37,7 @@ app.use((request, response, next) => {
  * Rotas
  */
 app.get('/', (request, response) => {
-	response.render('index', {
-		title: 'Stormtroopers API',
-		message: 'Always pass on what you have learned.'
-	});
+	response.send('Always pass on what you have learned.');
 });
 
 app.get('/movies', (request, response) => {
