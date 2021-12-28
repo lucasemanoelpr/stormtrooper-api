@@ -7,16 +7,20 @@ import nunjucks from 'nunjucks';
 import path from 'path';
 import { dirname } from 'path';
 import { fileURLToPath } from 'url';
-
-const __dirname = path.join(dirname(fileURLToPath(import.meta.url)), '../');
+import helmet from 'helmet';
 
 process.env.NODE_ENV = process.env.NODE_ENV || '';
+const __dirname = path.join(dirname(fileURLToPath(import.meta.url)), '../');
 const envFile = path.resolve(__dirname, `${process.env.NODE_ENV}.env.test`);
 dotenv.config({ path: envFile });
 /**
  * Configuração do App
  */
 const app = express();
+
+app.disable('x-powered-by');
+app.use(helmet());
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.set('view engine', 'html');
