@@ -13,12 +13,12 @@ const Stormtrooper = {
 	byId (request, response, next) {
 		repository.byId(request.params.id)
 			.then(handleNotFound)
-			.then(result => response.status(201).json(result))
+			.then(result => response.status(200).json(result))
 			.catch(next);
 	},
 	create(request, response, next) {
 		repository.create(request.body)
-			.then(result => response.json(result))
+			.then(result => response.status(201).json(result))
 			.catch(next);
 	},
 	updateById(request, response) {
