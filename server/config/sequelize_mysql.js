@@ -5,11 +5,21 @@ const model = new Sequelize(process.env.MYSQL_DATABASE, process.env.MYSQL_USER, 
 	dialect: 'mysql',
 });
 
-try {
-	await model.authenticate();
-	console.log('Connection has been established successfully.');
-} catch (error) {
-	console.error('Unable to connect to the database:', error);
-}
+model.check = async () => {
+	try {
+		await model.authenticate();
+		return { 
+			name: 'Mysql/Sequelize',
+			ok: true,
+			message: 'Connection has been established successfully.'
+		};
+	} catch (error) {
+		return { 
+			name: 'Mysql/Sequelize',
+			ok: false,
+			message: error.message
+		};
+	}
+};
 
 export default model;

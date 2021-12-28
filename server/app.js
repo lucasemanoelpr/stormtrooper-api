@@ -12,7 +12,6 @@ const __dirname = path.join(dirname(fileURLToPath(import.meta.url)), '../');
 
 process.env.NODE_ENV = process.env.NODE_ENV || '';
 const envFile = path.resolve(__dirname, `${process.env.NODE_ENV}.env.test`);
-console.log(envFile);
 dotenv.config({ path: envFile });
 /**
  * Configuração do App

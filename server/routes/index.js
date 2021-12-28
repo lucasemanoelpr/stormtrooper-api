@@ -1,5 +1,6 @@
 import { Router } from 'express';
 import trooperRoutes from './troopers.js';
+import checkRoutes from './check.js';
 import authenticationRoutes from './authentication.js';
 import passport from 'passport';
 import { BasicStrategy } from 'passport-http';
@@ -24,5 +25,6 @@ routes.get('/favicon.ico', (request, response) => {
 // routes.use("/troopers", passport.authenticate('basic', { session: false }), trooperRoutes);
 routes.use('/troopers', trooperRoutes);
 routes.use('/auth', authenticationRoutes);
+routes.use('/checks', checkRoutes);
 
 export default routes;
