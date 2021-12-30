@@ -1,6 +1,6 @@
 import createHttpError from 'http-errors';
 import Validators from '../validators/index.js';
-// import Joi from 'joi';
+
 const ValidatorRequestMiddleware = (validator) => {
 
 	return async function(request, response, next) {

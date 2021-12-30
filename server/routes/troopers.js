@@ -8,7 +8,7 @@ const trooperRoutes = new Router();
 trooperRoutes.get('/', controller.list);
 trooperRoutes.get('/:id', VerifyIdMiddleware, controller.byId);
 trooperRoutes.post('/', ValidatorRequestMiddleware('CreateStormtrooperSchema'), controller.create);
-trooperRoutes.put('/:id', VerifyIdMiddleware, controller.updateById);
+trooperRoutes.put('/:id', VerifyIdMiddleware, ValidatorRequestMiddleware('UpdateStormtrooperSchema'), controller.updateById);
 trooperRoutes.delete('/:id', VerifyIdMiddleware, controller.deleteById);
 
 export default trooperRoutes;
