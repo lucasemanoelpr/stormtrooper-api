@@ -1,5 +1,6 @@
 import { Router } from 'express';
 import trooperRoutes from './troopers.js';
+import userRoutes from './user.js';
 import checkRoutes from './check.js';
 import authenticationRoutes from './authentication.js';
 import passport from 'passport';
@@ -18,11 +19,8 @@ passport.use(
 	})
 );
 
-routes.get('/favicon.ico', (request, response) => {    
-	response.writeHead(200, { 'Content-Type': 'image/x-icon' });
-	response.end(); 
-});
 // routes.use("/troopers", passport.authenticate('basic', { session: false }), trooperRoutes);
+routes.use('/users', userRoutes);
 routes.use('/troopers', trooperRoutes);
 routes.use('/auth', authenticationRoutes);
 routes.use('/checks', checkRoutes);

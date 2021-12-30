@@ -9,7 +9,7 @@ const trooperRoutes = new Router();
 trooperRoutes.get('/', controller.list);
 trooperRoutes.post('/', ValidatorRequestMiddleware('CreateStormtrooperSchema'), controller.create);
 /** Group routes :id with Middlwares  */
-trooperRoutes.use('/:id', [ VerifyIdMiddleware, VerifyIdExists('stormtroopers') ]);
+trooperRoutes.use('/:id', [VerifyIdMiddleware, VerifyIdExists('stormtroopers')]);
 /** */
 trooperRoutes.get('/:id', controller.byId);
 trooperRoutes.put('/:id', ValidatorRequestMiddleware('UpdateStormtrooperSchema'), controller.updateById);
