@@ -3,37 +3,23 @@ import sequelize from '../config/sequelize_mysql.js';
 import { v4 as uuidv4 } from 'uuid';
 const { DataTypes, Model } = _sequelize;
 
-class Patent extends Model {
-	constructor() {
-		super();
-		if (!this.id) {
-			this.id = uuidv4();
-		}
-	}
-}
+class Patent extends Model {}
 
 Patent.init({
 	id: {
 		type: DataTypes.UUIDV4,
 		allowNull: false,
-		primaryKey: true
+		primaryKey: true,
+		defaultValue: () => uuidv4()
 	},
 	name: {
 		type: DataTypes.STRING,
 		allowNull: false,
-	},
-	createdAt: {
-		type: DataTypes.DATE,
-		defaultValue: DataTypes.NOW
-	},
-	updatedAt: {
-		type: DataTypes.DATE,
-		defaultValue: DataTypes.NOW
 	}
 }, {
 	sequelize,
 	modelName: 'Patent',
-	timestamps: true,
+	timestamps: false,
 });
 
 export default Patent;

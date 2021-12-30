@@ -1,13 +1,13 @@
 import Sequelize from 'sequelize';
 
-const model = new Sequelize(process.env.MYSQL_DATABASE, process.env.MYSQL_USER, process.env.MYSQL_PASSWORD, {
+const sequelize = new Sequelize(process.env.MYSQL_DATABASE, process.env.MYSQL_USER, process.env.MYSQL_PASSWORD, {
 	host: process.env.MYSQL_HOST,
 	dialect: 'mysql',
 });
 
-model.check = async () => {
+sequelize.check = async () => {
 	try {
-		await model.authenticate();
+		await sequelize.authenticate();
 		return { 
 			name: 'Mysql/Sequelize',
 			ok: true,
@@ -22,4 +22,4 @@ model.check = async () => {
 	}
 };
 
-export default model;
+export default sequelize;

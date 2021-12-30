@@ -7,20 +7,14 @@ import { v4 as uuidv4 } from 'uuid';
 
 const { DataTypes, Model } = _sequelize;
 
-class Stormtrooper extends Model {
-	constructor() {
-		super();
-		if (!this.id) {
-			this.id = uuidv4();
-		}
-	}
-}
+class Stormtrooper extends Model { }
 
 Stormtrooper.init({
 	id: {
 		type: DataTypes.UUIDV4,
 		allowNull: false,
-		primaryKey: true
+		primaryKey: true,
+		defaultValue: () => uuidv4()
 	},
 	name: {
 		type: DataTypes.STRING,
@@ -31,24 +25,16 @@ Stormtrooper.init({
 		allowNull: false,
 	},
 	id_patent: {
-		type: DataTypes.INTEGER,
+		type: DataTypes.UUIDV4,
 		references: {
 			model: Patent,
 			key: 'id',
 		}
-	},
-	createdAt: {
-		type: DataTypes.DATE,
-		defaultValue: DataTypes.NOW
-	},
-	updatedAt: {
-		type: DataTypes.DATE,
-		defaultValue: DataTypes.NOW
 	}
 }, {
 	sequelize,
 	modelName: 'Stormtrooper',
-	timestamps: true
+	timestamps: false
 });
 
 Stormtrooper.belongsToMany(Division, { 

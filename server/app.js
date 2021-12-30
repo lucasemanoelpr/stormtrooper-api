@@ -9,10 +9,8 @@ import { dirname } from 'path';
 import { fileURLToPath } from 'url';
 import helmet from 'helmet';
 
-process.env.NODE_ENV = process.env.NODE_ENV || '';
 const __dirname = path.join(dirname(fileURLToPath(import.meta.url)), '../');
-const envFile = path.resolve(__dirname, `${process.env.NODE_ENV}.env.test`);
-dotenv.config({ path: envFile });
+dotenv.config();
 /**
  * Configuração do App
  */
