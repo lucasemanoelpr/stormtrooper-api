@@ -11,16 +11,19 @@ const User = {
 			}
 			: {};
 		return await model.findAll({
+			attributes: { exclude: ['password'] },
 			limit: 3,
 			offset: page,
 			...queryByName
 		});
 	},
-	async create({ name, email }) {
-		return await model.create({ name, email });
+	async create({ name, email, password }) {
+		return await model.create({ name, email, password });
 	},
 	async findById(id) {
-		return await model.findByPk(id);
+		return await model.findByPk(id, {
+			attributes: { exclude: ['password'] },
+		});
 	},
 	async updateById(id, user) {
 		return await model.update(user, {
@@ -30,6 +33,10 @@ const User = {
 	async deleteById(id) {
 		return await model.destroy( { where: { id } });
 	},
+	/** Only used to internal checks, because return the password */
+	async findByEmail(email) {
+		return await model.findOne( { where: { email } });		
+	}
 };
 
 export default User;

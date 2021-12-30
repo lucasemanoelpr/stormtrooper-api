@@ -5,7 +5,7 @@ import checkRoutes from './check.js';
 import authenticationRoutes from './authentication.js';
 import passport from 'passport';
 import { BasicStrategy } from 'passport-http';
-// import verifyJwt from '../middlewares/VerifyJwt.js';
+import verifyJwt from '../middlewares/VerifyJwt.js';
 
 const routes = Router();
 
@@ -21,7 +21,7 @@ passport.use(
 
 // routes.use("/troopers", passport.authenticate('basic', { session: false }), trooperRoutes);
 routes.use('/users', userRoutes);
-routes.use('/troopers', trooperRoutes);
+routes.use('/troopers', verifyJwt, trooperRoutes);
 routes.use('/auth', authenticationRoutes);
 routes.use('/checks', checkRoutes);
 

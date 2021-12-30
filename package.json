@@ -14,6 +14,7 @@
   "author": "Lucas Emanoel da Fonseca <lucasemanoelsfs@gmail.com>",
   "license": "ISC",
   "dependencies": {
+    "bcrypt": "^5.0.1",
     "cors": "^2.8.5",
     "debug": "^4.3.3",
     "dnscache": "^1.0.2",

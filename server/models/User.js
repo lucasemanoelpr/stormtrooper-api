@@ -1,6 +1,7 @@
 import _sequelize from 'sequelize';
 import sequelize from '../config/sequelize_mysql.js';
 import { v4 as uuidv4 } from 'uuid';
+import bcrypt from 'bcrypt';
 
 const { DataTypes, Model } = _sequelize;
 
@@ -21,6 +22,10 @@ User.init({
 		type: DataTypes.STRING,
 		allowNull: false,
 	},
+	password: {
+		type: DataTypes.STRING,
+		allowNull: false
+	},
 	isAdmin: {
 		type: DataTypes.BOOLEAN,
 		allowNull: false,
@@ -29,6 +34,11 @@ User.init({
 }, {
 	sequelize,
 	modelName: 'User'
+});
+
+User.addHook('beforeCreate', (user, options) => {
+	const salt = 10;
+	user.password = bcrypt.hashSync(user.password, salt);
 });
 
 export default User;
