@@ -33,15 +33,11 @@ const Stormtrooper = {
 	},
 	async updateById(id, trooper) {
 		return await model.update(trooper, {
-			where: {
-				id,
-			}
+			where: { id	}
 		});
 	},
 	async deleteById(id) {
-		return await model.destroy({
-			where: { id }
-		});
+		return await model.destroy({ where: { id } });
 	}
 };
 
