@@ -19,8 +19,7 @@ Division.init({
 	}
 }, {
 	sequelize,
-	modelName: 'Division',
-	timestamps: false
+	modelName: 'Division'
 });
 
 export default Division;

@@ -34,7 +34,6 @@ Stormtrooper.init({
 }, {
 	sequelize,
 	modelName: 'Stormtrooper',
-	timestamps: false
 });
 
 Stormtrooper.belongsToMany(Division, { 

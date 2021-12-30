@@ -23,13 +23,10 @@ const Stormtrooper = {
 	},
 	async byId(id) {
 		const stormtrooper = await model.findByPk(id);
-		console.log(process.env.MYSQL_HOST, process.env.MYSQL_DATABASE, process.env.MYSQL_USER, process.env.MYSQL_PASSWORD);
 		return stormtrooper;
 	},
 	async create({ name, nickname, id_patent, division_id }) {
-		console.log(name, nickname, id_patent, division_id);
 		const newStormtrooper = await model.create( { name, nickname, id_patent } );
-		console.log(newStormtrooper);
 		const division = await Division.findByPk(division_id);
 		await newStormtrooper.addDivision(division, { through: { selfGranted: false } });
 		return newStormtrooper;

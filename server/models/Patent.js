@@ -18,8 +18,7 @@ Patent.init({
 	}
 }, {
 	sequelize,
-	modelName: 'Patent',
-	timestamps: false,
+	modelName: 'Patent'
 });
 
 export default Patent;
