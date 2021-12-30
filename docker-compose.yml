@@ -1,0 +1,19 @@
+version: '3.8'
+services:
+  backend:
+    container_name: stormtrooper_api
+    build:
+        context: ./
+    volumes:
+      - .:/usr/src/app
+    command: ["npm", "run", "dev"]
+    ports:
+      - "8080:3000"
+  db:
+    container_name: stormtrooper_db
+    image: mysql
+    restart: always
+    ports: 
+      - "3307:3306"
+    environment: 
+      MYSQL_ROOT_PASSWORD: root

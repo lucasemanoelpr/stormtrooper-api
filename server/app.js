@@ -41,7 +41,7 @@ app.use((request, response, next) => {
  * Rotas
  */
 app.get('/', (request, response) => {
-	response.send('Always pass on what you have learned.');
+	response.send('Always pass on what you have learned. :D');
 });
 
 app.get('/movies', (request, response) => {

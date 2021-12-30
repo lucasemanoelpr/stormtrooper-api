@@ -7,11 +7,11 @@ class Stormtrooper_Division extends Model { }
 
 Stormtrooper_Division.init({
 	id_stormtrooper: {
-		type: DataTypes.INTEGER,
+		type: DataTypes.UUIDV4,
 		allowNull: false,
 	},
 	id_division: {
-		type: DataTypes.INTEGER,
+		type: DataTypes.UUIDV4,
 		allowNull: false,
 	},
 }, {

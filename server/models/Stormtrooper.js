@@ -3,12 +3,25 @@ import Patent from './Patent.js';
 import sequelize from '../config/sequelize_mysql.js';
 import Stormtrooper_Division from './Stormtrooper_Division.js';
 import Division from './Division.js';
+import { v4 as uuidv4 } from 'uuid';
 
 const { DataTypes, Model } = _sequelize;
 
-class Stormtrooper extends Model { }
+class Stormtrooper extends Model {
+	constructor() {
+		super();
+		if (!this.id) {
+			this.id = uuidv4();
+		}
+	}
+}
 
 Stormtrooper.init({
+	id: {
+		type: DataTypes.UUIDV4,
+		allowNull: false,
+		primaryKey: true
+	},
 	name: {
 		type: DataTypes.STRING,
 		allowNull: false,
@@ -23,11 +36,19 @@ Stormtrooper.init({
 			model: Patent,
 			key: 'id',
 		}
+	},
+	createdAt: {
+		type: DataTypes.DATE,
+		defaultValue: DataTypes.NOW
+	},
+	updatedAt: {
+		type: DataTypes.DATE,
+		defaultValue: DataTypes.NOW
 	}
 }, {
 	sequelize,
 	modelName: 'Stormtrooper',
-	timestamps: false,
+	timestamps: true
 });
 
 Stormtrooper.belongsToMany(Division, { 

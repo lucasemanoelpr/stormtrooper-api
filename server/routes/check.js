@@ -18,7 +18,7 @@ checkRoutes.get('/version', async (request, response) => {
 	});
 });
 
-checkRoutes.get('/status',  () => response.send('PONG'));
+checkRoutes.get('/status', (request, response) => response.send('PONG'));
 
 checkRoutes.get('/status/complete', async (request, response) => {
 	const checks = [await mysql.check()];

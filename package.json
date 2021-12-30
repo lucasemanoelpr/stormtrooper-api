@@ -4,9 +4,11 @@
   "description": "",
   "main": "server/bin/www",
   "scripts": {
-    "dev": "set DEBUG=stormtrooper_api:* && nodemon server/bin/www",
+    "dev": "DEBUG=stormtrooper_api:* && nodemon --legacy-watch server/bin/www",
+    "win:dev": "set DEBUG=stormtrooper_api:* && nodemon server/bin/www",
     "pretest": "eslint --fix server/**/*.js",
-    "test": "set DOTENV_CONFIG_PATH=./.env.test& node -r dotenv/config --experimental-vm-modules node_modules/jest/bin/jest.js --coverage --forceExit --detectOpenHandles"
+    "test": "DOTENV_CONFIG_PATH=./.env.test& node -r dotenv/config --experimental-vm-modules node_modules/jest/bin/jest.js --coverage --forceExit --detectOpenHandles",
+    "win:test": "set DOTENV_CONFIG_PATH=./.env.test& node -r dotenv/config --experimental-vm-modules node_modules/jest/bin/jest.js --coverage --forceExit --detectOpenHandles"
   },
   "keywords": [],
   "author": "Lucas Emanoel da Fonseca <lucasemanoelsfs@gmail.com>",
@@ -26,13 +28,16 @@
     "passport": "^0.5.2",
     "passport-http": "^0.3.0",
     "redis": "^4.0.1",
-    "sequelize": "^6.12.1"
+    "sequelize": "^6.12.1",
+    "uuid": "^8.3.2"
   },
   "devDependencies": {
+    "babel-register": "^6.26.0",
     "eslint": "^8.5.0",
     "jest": "^27.4.5",
     "loadtest": "^5.1.2",
     "nodemon": "^2.0.15",
+    "sequelize-cli": "^6.3.0",
     "supertest": "^6.1.6"
   },
   "type": "module"
