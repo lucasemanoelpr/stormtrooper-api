@@ -24,9 +24,12 @@ const handleNotFound = (result) => {
 	return result;
 };
 
+const uuidv4RegexPattern = /^([a-z]|[A-Z]|[0-9]|[-]){36}$/;
+
 export default {
 	arraySum,
 	guid,
 	isBiggerThan,
-	handleNotFound
+	handleNotFound,
+	uuidv4RegexPattern
 };
