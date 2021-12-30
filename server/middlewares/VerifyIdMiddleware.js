@@ -7,7 +7,7 @@ const VerifyIdMiddleware = (request, response, next) => {
 	const id = request.params.id;
 	
 	if (!uuidv4RegexPattern.test(id)) {
-		return next(createError(422, 'Invalid id'));
+		return next(createError(422, 'Invalid id. Must be a valid uuidv4'));
 	}
 
 	next();
