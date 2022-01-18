@@ -3,6 +3,15 @@ import request from 'supertest';
 import Stormtrooper from '../../../server/repositories/Stormtrooper.js';
 
 let id;
+
+beforeAll(() => {
+
+});
+
+afterAll(() => {
+
+});
+
 beforeEach(() => {
 	return Stormtrooper.create({
 		name: '00002CT-TEST',
